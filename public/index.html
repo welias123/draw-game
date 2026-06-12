@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DrawGuess</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── LOBBY ──────────────────────────────────────────── -->
+<div id="lobbyScreen" class="screen active">
+  <div class="lobby-card fade-in">
+    <div class="logo">🎨 <span>Draw</span>Guess</div>
+    <p class="tagline">Zeichne · Rate · Gewinne</p>
+
+    <input id="nameInput" class="input-field" type="text" placeholder="Dein Name..." maxlength="16" autofocus>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="create">Raum erstellen</button>
+      <button class="tab-btn" data-tab="join">Beitreten</button>
+    </div>
+
+    <div id="createTab" class="tab-panel active">
+      <div class="rounds-label">
+        <span>Runden</span>
+        <strong id="roundVal">3</strong>
+      </div>
+      <input id="roundSlider" type="range" min="1" max="10" value="3">
+      <button class="btn-primary" id="createBtn">Raum erstellen</button>
+    </div>
+
+    <div id="joinTab" class="tab-panel">
+      <input id="codeInput" class="input-field upper" type="text" placeholder="Raum-Code eingeben..." maxlength="6">
+      <button class="btn-primary" id="joinBtn">Beitreten</button>
+    </div>
+
+    <div class="error-msg" id="lobbyError"></div>
+  </div>
+</div>
+
+<!-- ── WAITING ROOM ───────────────────────────────────── -->
+<div id="waitingScreen" class="screen">
+  <div class="waiting-card fade-in">
+    <h2>🎮 Warteraum</h2>
+    <div class="code-display">
+      <span class="code-text" id="waitCode">------</span>
+      <button class="copy-btn" id="copyBtn">📋 Link kopieren</button>
+    </div>
+    <ul class="waiting-players" id="waitingPlayers"></ul>
+    <p class="waiting-hint" id="waitHint">Mindestens 2 Spieler nötig</p>
+    <button class="btn-primary hidden" id="startBtn">▶ Spiel starten</button>
+    <div class="error-msg" id="waitError"></div>
+  </div>
+</div>
+
+<!-- ── GAME ───────────────────────────────────────────── -->
+<div id="gameScreen" class="screen">
+
+  <header class="game-header">
+    <div class="header-logo">🎨 DrawGuess</div>
+    <div class="round-badge" id="roundBadge">Runde 1/3</div>
+    <div class="word-display" id="wordDisplay">· · ·</div>
+    <div class="timer" id="timerDisplay">—</div>
+  </header>
+
+  <div class="game-body">
+
+    <!-- Players -->
+    <aside class="players-col">
+      <h4>Spieler</h4>
+      <div id="playersList"></div>
+    </aside>
+
+    <!-- Canvas + Tools -->
+    <div class="center-col">
+      <div class="canvas-wrapper">
+        <canvas id="canvas" width="800" height="600"></canvas>
+
+        <!-- Word select overlay -->
+        <div id="wordSelectOverlay" class="canvas-overlay hidden">
+          <div class="overlay-card fade-in">
+            <h3>Wähle ein Wort zum Zeichnen</h3>
+            <div class="word-cards" id="wordCards"></div>
+          </div>
+        </div>
+
+        <!-- Turn end overlay -->
+        <div id="turnEndOverlay" class="canvas-overlay hidden">
+          <div class="overlay-card fade-in">
+            <div class="reveal-label">Das Wort war</div>
+            <div class="reveal-word" id="revealWord"></div>
+            <div class="score-list" id="turnScores"></div>
+          </div>
+        </div>
+
+        <!-- Game end overlay -->
+        <div id="gameEndOverlay" class="canvas-overlay hidden">
+          <div class="overlay-card fade-in">
+            <h2>🏆 Spiel beendet!</h2>
+            <div class="podium" id="podium"></div>
+            <button class="btn-primary" id="playAgainBtn" style="margin-top:8px">Nochmal spielen</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drawing tools -->
+      <div class="tools-panel hidden" id="toolsPanel">
+        <div class="color-grid" id="colorGrid"></div>
+        <input type="color" id="customColor" title="Eigene Farbe" value="#000000">
+        <div class="divider"></div>
+        <div class="size-btns">
+          <button class="size-btn active" data-size="4" title="Klein"><span class="size-dot" style="width:4px;height:4px"></span></button>
+          <button class="size-btn" data-size="10" title="Mittel"><span class="size-dot" style="width:8px;height:8px"></span></button>
+          <button class="size-btn" data-size="22" title="Groß"><span class="size-dot" style="width:12px;height:12px"></span></button>
+          <button class="size-btn" data-size="38" title="Sehr groß"><span class="size-dot" style="width:16px;height:16px"></span></button>
+        </div>
+        <div class="divider"></div>
+        <div class="tool-btns">
+          <button class="tool-btn active" data-tool="pen" title="Stift">✏️</button>
+          <button class="tool-btn" data-tool="eraser" title="Radierer">⬜</button>
+          <button class="tool-btn" data-tool="fill" title="Farbeimer">🪣</button>
+        </div>
+        <button class="clear-btn" id="clearBtn">🗑️ Löschen</button>
+      </div>
+    </div>
+
+    <!-- Chat -->
+    <aside class="chat-col">
+      <div class="chat-log" id="chatLog"></div>
+      <form class="chat-form" id="chatForm" autocomplete="off">
+        <input class="chat-input" id="chatInput" type="text" placeholder="Antwort eingeben..." maxlength="80">
+        <button class="chat-send" type="submit">→</button>
+      </form>
+    </aside>
+
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
