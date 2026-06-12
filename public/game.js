@@ -266,7 +266,7 @@ document.getElementById('startBtn').addEventListener('click', () => {
 });
 
 document.getElementById('playAgainBtn').addEventListener('click', () => {
-  // Game auto-resets after 30s, overlay closes on gameReset
+  socket.emit('playAgain', { code: roomCode });
 });
 
 // ─── Auto-join from URL ───────────────────────────────
@@ -306,12 +306,13 @@ function addChat(name, text, type) {
   const log = document.getElementById('chatLog');
   const div = document.createElement('div');
   div.className = `chat-msg ${type || ''}`;
+  const color = avatarColor(name);
   if (type === 'correct') {
-    div.textContent = `✅ ${name} hat das Wort erraten!`;
+    div.innerHTML = `<span style="color:${color}">✓</span> <strong style="color:${color}">${esc(name)}</strong> hat es erraten!`;
   } else if (type === 'system') {
-    div.textContent = `ℹ️ ${name} ${text}`;
+    div.textContent = `${name} ${text}`;
   } else {
-    div.innerHTML = `<span class="chat-name">${esc(name)}:</span> ${esc(text)}`;
+    div.innerHTML = `<span class="chat-name" style="color:${color}">${esc(name)}:</span> ${esc(text)}`;
   }
   log.appendChild(div);
   log.scrollTop = log.scrollHeight;

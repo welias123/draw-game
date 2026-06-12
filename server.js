@@ -223,12 +223,22 @@ io.on('connection', socket => {
     room.state = 'gameEnd';
     const sorted = [...room.players].sort((a, b) => b.score - a.score);
     io.to(room.code).emit('gameEnd', { players: sorted.map(pub) });
-    setTimeout(() => {
+    room.resetTimer = setTimeout(() => {
       room.state = 'waiting'; room.round = 0; room.drawerIdx = -1;
       room.players.forEach(p => p.score = 0);
       io.to(room.code).emit('gameReset', snap(room));
     }, 30000);
   }
+
+  socket.on('playAgain', ({ code }) => {
+    const room = rooms.get(code);
+    if (!room || room.state !== 'gameEnd') return;
+    if (!room.players.find(p => p.id === socket.id)) return;
+    clearTimeout(room.resetTimer);
+    room.state = 'waiting'; room.round = 0; room.drawerIdx = -1;
+    room.players.forEach(p => p.score = 0);
+    io.to(code).emit('gameReset', snap(room));
+  });
 });
 
 const PORT = process.env.PORT || 3000;
