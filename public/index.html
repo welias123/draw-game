@@ -10,68 +10,153 @@
 
 <!-- ── LOBBY ──────────────────────────────────────────── -->
 <div id="lobbyScreen" class="screen active">
-  <div class="lobby-card fade-in">
-    <div class="logo">
-      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/>
-        <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" stroke="none"/>
-        <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" stroke="none"/>
-        <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" stroke="none"/>
+
+  <!-- Background doodles (like skribbl.io) -->
+  <svg class="lobby-doodles" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.18">
+      <!-- pencil top-left -->
+      <g transform="translate(110,95) rotate(-40)">
+        <rect x="-11" y="-52" width="22" height="72" rx="3"/>
+        <polygon points="-11,20 11,20 0,42"/>
+        <line x1="-11" y1="13" x2="11" y2="13"/>
+      </g>
+      <!-- star top-right -->
+      <polygon points="1290,35 1299,62 1328,62 1305,79 1313,106 1290,89 1267,106 1275,79 1252,62 1281,62"/>
+      <!-- cloud left -->
+      <path d="M55,280 a38,38 0 0 1 38-38 a24,24 0 0 1 48,0 a32,32 0 0 1 60,14 a24,24 0 0 1-24,24 H55z"/>
+      <!-- house right -->
+      <path d="M1320,370 L1375,308 L1430,370 M1332,370 L1332,445 L1418,445 L1418,370 M1350,405 L1350,445 L1375,445 L1375,405z"/>
+      <!-- balloon top center-left -->
+      <ellipse cx="420" cy="90" rx="32" ry="40"/>
+      <path d="M417,130 q4,12 0,24"/>
+      <!-- balloon top center-right -->
+      <ellipse cx="1020" cy="110" rx="28" ry="35"/>
+      <path d="M1017,145 q3,10 0,22"/>
+      <!-- sun bottom right -->
+      <circle cx="1340" cy="790" r="38"/>
+      <line x1="1340" y1="743" x2="1340" y2="733"/> <line x1="1340" y1="837" x2="1340" y2="847"/>
+      <line x1="1293" y1="790" x2="1283" y2="790"/> <line x1="1387" y1="790" x2="1397" y2="790"/>
+      <line x1="1307" y1="757" x2="1299" y2="749"/> <line x1="1373" y1="823" x2="1381" y2="831"/>
+      <line x1="1373" y1="757" x2="1381" y2="749"/> <line x1="1307" y1="823" x2="1299" y2="831"/>
+      <!-- cat bottom left -->
+      <circle cx="130" cy="780" r="42"/>
+      <path d="M97,742 L80,712 L106,734 M163,742 L180,712 L154,734"/>
+      <path d="M112,804 q18,20 36,0"/>
+      <circle cx="112" cy="772" r="6"/> <circle cx="148" cy="772" r="6"/>
+      <path d="M110,786 l-22,0 M150,786 l22,0"/>
+      <!-- fish right middle -->
+      <path d="M1230,490 q70-40 140,0 q-70,40-140,0z M1230,490 l-35-24 l0,48z"/>
+      <circle cx="1340" cy="484" r="5"/>
+      <!-- wave bottom center -->
+      <path d="M200,862 q45-38 90,0 q45,38 90,0 q45-38 90,0 q45,38 90,0 q45-38 90,0 q45,38 90,0 q45-38 90,0 q45,38 90,0 q45-38 90,0 q45,38 90,0"/>
+      <!-- music note left middle -->
+      <line x1="210" y1="460" x2="210" y2="535"/> <line x1="210" y1="460" x2="252" y2="448"/> <line x1="252" y1="448" x2="252" y2="523"/>
+      <circle cx="202" cy="536" r="9"/> <circle cx="244" cy="524" r="9"/>
+      <!-- tree bottom right area -->
+      <polygon points="1060,695 1018,798 1102,798"/>
+      <polygon points="1060,640 1005,775 1115,775"/>
+      <rect x="1047" y="798" width="26" height="44"/>
+      <!-- star bottom left -->
+      <polygon points="300,830 308,854 332,854 314,869 320,893 300,878 280,893 286,869 268,854 292,854"/>
+      <!-- pencil right -->
+      <g transform="translate(1380,550) rotate(30)">
+        <rect x="-10" y="-48" width="20" height="65" rx="3"/>
+        <polygon points="-10,17 10,17 0,37"/>
+        <line x1="-10" y1="10" x2="10" y2="10"/>
+      </g>
+      <!-- book top left area -->
+      <rect x="240" y="60" width="55" height="72" rx="4"/>
+      <line x1="267" y1="60" x2="267" y2="132"/>
+      <line x1="247" y1="85" x2="267" y2="85"/> <line x1="267" y1="85" x2="287" y2="85"/>
+      <line x1="247" y1="100" x2="267" y2="100"/> <line x1="267" y1="100" x2="287" y2="100"/>
+      <line x1="247" y1="115" x2="267" y2="115"/> <line x1="267" y1="115" x2="287" y2="115"/>
+      <!-- crown top right area -->
+      <path d="M1060,65 L1080,30 L1100,65 L1120,30 L1140,65 L1140,90 L1060,90z"/>
+      <!-- lightbulb right -->
+      <path d="M1190,380 a35,35 0 1 1-35,35 M1190,415 L1170,415 M1190,415 L1210,415 M1176,440 L1204,440 M1180,456 L1200,456"/>
+    </g>
+  </svg>
+
+  <div class="lobby-inner">
+    <div class="lobby-title">
+      <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="13.5" cy="6.5" r=".5" fill="white" stroke="none"/>
+        <circle cx="17.5" cy="10.5" r=".5" fill="white" stroke="none"/>
+        <circle cx="8.5" cy="7.5" r=".5" fill="white" stroke="none"/>
+        <circle cx="6.5" cy="12.5" r=".5" fill="white" stroke="none"/>
         <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
       </svg>
-      <span>Draw</span>Guess
+      DrawGuess
     </div>
-    <p class="tagline">Zeichne · Rate · Gewinne</p>
+    <p class="lobby-subtitle">Zeichne · Rate · Gewinne</p>
 
-    <input id="nameInput" class="input-field" type="text" placeholder="Dein Name..." maxlength="16" autofocus>
+    <div class="lobby-card fade-in">
+      <input id="nameInput" class="input-field" type="text" placeholder="Dein Name..." maxlength="16" autofocus>
 
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="create">Raum erstellen</button>
-      <button class="tab-btn" data-tab="join">Beitreten</button>
-    </div>
-
-    <div id="createTab" class="tab-panel active">
-      <div class="rounds-label">
-        <span>Runden</span>
-        <strong id="roundVal">3</strong>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="create">Raum erstellen</button>
+        <button class="tab-btn" data-tab="join">Beitreten</button>
       </div>
-      <input id="roundSlider" type="range" min="1" max="10" value="3">
-      <button class="btn-primary" id="createBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        Raum erstellen
-      </button>
-    </div>
 
-    <div id="joinTab" class="tab-panel">
-      <input id="codeInput" class="input-field upper" type="text" placeholder="RAUM-CODE" maxlength="6">
-      <button class="btn-primary" id="joinBtn">Beitreten</button>
-    </div>
+      <div id="createTab" class="tab-panel active">
+        <div class="rounds-label">
+          <span>Runden</span>
+          <strong id="roundVal">3</strong>
+        </div>
+        <input id="roundSlider" type="range" min="1" max="10" value="3">
+        <button class="btn-primary" id="createBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Spielen!
+        </button>
+      </div>
 
-    <div class="error-msg" id="lobbyError"></div>
+      <div id="joinTab" class="tab-panel">
+        <input id="codeInput" class="input-field upper" type="text" placeholder="RAUM-CODE" maxlength="6">
+        <button class="btn-primary" id="joinBtn">Beitreten</button>
+      </div>
+
+      <div class="error-msg" id="lobbyError"></div>
+    </div>
   </div>
 </div>
 
 <!-- ── WAITING ROOM ───────────────────────────────────── -->
 <div id="waitingScreen" class="screen">
-  <div class="waiting-card fade-in">
-    <h2>
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      Warteraum
-    </h2>
-    <div class="code-display">
-      <span class="code-text" id="waitCode">------</span>
-      <button class="copy-btn" id="copyBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        Link kopieren
+  <svg class="lobby-doodles" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.18">
+      <g transform="translate(110,95) rotate(-40)"><rect x="-11" y="-52" width="22" height="72" rx="3"/><polygon points="-11,20 11,20 0,42"/><line x1="-11" y1="13" x2="11" y2="13"/></g>
+      <polygon points="1290,35 1299,62 1328,62 1305,79 1313,106 1290,89 1267,106 1275,79 1252,62 1281,62"/>
+      <path d="M55,280 a38,38 0 0 1 38-38 a24,24 0 0 1 48,0 a32,32 0 0 1 60,14 a24,24 0 0 1-24,24 H55z"/>
+      <ellipse cx="1020" cy="110" rx="28" ry="35"/><path d="M1017,145 q3,10 0,22"/>
+      <circle cx="1340" cy="790" r="38"/>
+      <line x1="1340" y1="743" x2="1340" y2="733"/><line x1="1340" y1="837" x2="1340" y2="847"/>
+      <line x1="1293" y1="790" x2="1283" y2="790"/><line x1="1387" y1="790" x2="1397" y2="790"/>
+      <path d="M200,862 q45-38 90,0 q45,38 90,0 q45-38 90,0 q45,38 90,0 q45-38 90,0 q45,38 90,0 q45-38 90,0 q45,38 90,0"/>
+      <line x1="210" y1="460" x2="210" y2="535"/><line x1="210" y1="460" x2="252" y2="448"/><line x1="252" y1="448" x2="252" y2="523"/><circle cx="202" cy="536" r="9"/><circle cx="244" cy="524" r="9"/>
+      <polygon points="1060,695 1018,798 1102,798"/><polygon points="1060,640 1005,775 1115,775"/><rect x="1047" y="798" width="26" height="44"/>
+    </g>
+  </svg>
+  <div class="lobby-inner">
+    <div class="waiting-card fade-in">
+      <h2>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Warteraum
+      </h2>
+      <div class="code-display">
+        <span class="code-text" id="waitCode">------</span>
+        <button class="copy-btn" id="copyBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Link kopieren
+        </button>
+      </div>
+      <ul class="waiting-players" id="waitingPlayers"></ul>
+      <p class="waiting-hint" id="waitHint">Mindestens 2 Spieler nötig</p>
+      <button class="btn-primary hidden" id="startBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Spiel starten
       </button>
+      <div class="error-msg" id="waitError"></div>
     </div>
-    <ul class="waiting-players" id="waitingPlayers"></ul>
-    <p class="waiting-hint" id="waitHint">Mindestens 2 Spieler nötig</p>
-    <button class="btn-primary hidden" id="startBtn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-      Spiel starten
-    </button>
-    <div class="error-msg" id="waitError"></div>
   </div>
 </div>
 
@@ -95,19 +180,15 @@
   </header>
 
   <div class="game-body">
-
-    <!-- Players -->
     <aside class="players-col">
       <h4>Spieler</h4>
       <div id="playersList"></div>
     </aside>
 
-    <!-- Canvas + Tools -->
     <div class="center-col">
       <div class="canvas-wrapper">
         <canvas id="canvas" width="800" height="600"></canvas>
 
-        <!-- Word select overlay -->
         <div id="wordSelectOverlay" class="canvas-overlay hidden">
           <div class="overlay-card fade-in">
             <h3>Wähle ein Wort zum Zeichnen</h3>
@@ -115,7 +196,6 @@
           </div>
         </div>
 
-        <!-- Turn end overlay -->
         <div id="turnEndOverlay" class="canvas-overlay hidden">
           <div class="overlay-card fade-in">
             <div class="reveal-label">Das Wort war</div>
@@ -124,7 +204,6 @@
           </div>
         </div>
 
-        <!-- Game end overlay -->
         <div id="gameEndOverlay" class="canvas-overlay hidden">
           <div class="overlay-card fade-in">
             <h2>
@@ -137,7 +216,6 @@
         </div>
       </div>
 
-      <!-- Drawing tools -->
       <div class="tools-panel hidden" id="toolsPanel">
         <div class="color-grid" id="colorGrid"></div>
         <input type="color" id="customColor" title="Eigene Farbe" value="#000000">
@@ -167,7 +245,6 @@
       </div>
     </div>
 
-    <!-- Chat -->
     <aside class="chat-col">
       <div class="chat-header">Chat</div>
       <div class="chat-log" id="chatLog"></div>
@@ -178,7 +255,6 @@
         </button>
       </form>
     </aside>
-
   </div>
 </div>
 

@@ -53,49 +53,54 @@ body {
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  background-color: var(--dark-1);
-  background-image:
-    linear-gradient(rgba(59,130,246,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59,130,246,.07) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-.lobby-card {
-  background: var(--surface);
-  border-radius: 22px;
-  padding: 44px 52px;
-  width: 430px;
-  box-shadow: var(--shadow-lg);
+  flex-direction: column;
+  background: linear-gradient(180deg, #5cb8ff 0%, #1a7ef5 50%, #0d55c8 100%);
   position: relative;
   overflow: hidden;
 }
-.lobby-card::before {
-  content: '';
+
+.lobby-doodles {
   position: absolute;
-  top: 0; left: 0; right: 0; height: 4px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
 }
 
-.logo {
+.lobby-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.lobby-title {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 30px;
+  gap: 16px;
+  font-size: 64px;
   font-weight: 900;
-  margin-bottom: 6px;
-  color: var(--text);
+  color: white;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  letter-spacing: -1px;
+  line-height: 1;
 }
-.logo-icon { color: var(--accent); }
-.logo span  { color: var(--accent); }
 
-.tagline {
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 14px;
-  margin-bottom: 28px;
-  font-weight: 600;
-  letter-spacing: .4px;
+.lobby-subtitle {
+  color: rgba(255,255,255,0.75);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.lobby-card {
+  background: rgba(255,255,255,0.97);
+  border-radius: 20px;
+  padding: 32px 44px;
+  width: 420px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
 }
 
 .input-field {
@@ -194,26 +199,19 @@ input[type="range"] {
 #waitingScreen {
   min-height: 100vh;
   align-items: center; justify-content: center;
-  background-color: var(--dark-1);
-  background-image:
-    linear-gradient(rgba(59,130,246,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59,130,246,.07) 1px, transparent 1px);
-  background-size: 40px 40px;
+  flex-direction: column;
+  background: linear-gradient(180deg, #5cb8ff 0%, #1a7ef5 50%, #0d55c8 100%);
+  position: relative;
+  overflow: hidden;
 }
 
 .waiting-card {
-  background: var(--surface);
-  border-radius: 22px;
+  background: rgba(255,255,255,0.97);
+  border-radius: 20px;
   padding: 38px 46px;
   width: 510px;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
   position: relative; overflow: hidden;
-}
-.waiting-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; height: 4px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
 }
 .waiting-card h2 {
   font-size: 20px; font-weight: 900;
