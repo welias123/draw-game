@@ -11,7 +11,16 @@
 <!-- ── LOBBY ──────────────────────────────────────────── -->
 <div id="lobbyScreen" class="screen active">
   <div class="lobby-card fade-in">
-    <div class="logo">🎨 <span>Draw</span>Guess</div>
+    <div class="logo">
+      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/>
+        <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" stroke="none"/>
+        <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" stroke="none"/>
+        <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" stroke="none"/>
+        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+      </svg>
+      <span>Draw</span>Guess
+    </div>
     <p class="tagline">Zeichne · Rate · Gewinne</p>
 
     <input id="nameInput" class="input-field" type="text" placeholder="Dein Name..." maxlength="16" autofocus>
@@ -27,11 +36,14 @@
         <strong id="roundVal">3</strong>
       </div>
       <input id="roundSlider" type="range" min="1" max="10" value="3">
-      <button class="btn-primary" id="createBtn">Raum erstellen</button>
+      <button class="btn-primary" id="createBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Raum erstellen
+      </button>
     </div>
 
     <div id="joinTab" class="tab-panel">
-      <input id="codeInput" class="input-field upper" type="text" placeholder="Raum-Code eingeben..." maxlength="6">
+      <input id="codeInput" class="input-field upper" type="text" placeholder="RAUM-CODE" maxlength="6">
       <button class="btn-primary" id="joinBtn">Beitreten</button>
     </div>
 
@@ -42,14 +54,23 @@
 <!-- ── WAITING ROOM ───────────────────────────────────── -->
 <div id="waitingScreen" class="screen">
   <div class="waiting-card fade-in">
-    <h2>🎮 Warteraum</h2>
+    <h2>
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Warteraum
+    </h2>
     <div class="code-display">
       <span class="code-text" id="waitCode">------</span>
-      <button class="copy-btn" id="copyBtn">📋 Link kopieren</button>
+      <button class="copy-btn" id="copyBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Link kopieren
+      </button>
     </div>
     <ul class="waiting-players" id="waitingPlayers"></ul>
     <p class="waiting-hint" id="waitHint">Mindestens 2 Spieler nötig</p>
-    <button class="btn-primary hidden" id="startBtn">▶ Spiel starten</button>
+    <button class="btn-primary hidden" id="startBtn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Spiel starten
+    </button>
     <div class="error-msg" id="waitError"></div>
   </div>
 </div>
@@ -58,7 +79,16 @@
 <div id="gameScreen" class="screen">
 
   <header class="game-header">
-    <div class="header-logo">🎨 DrawGuess</div>
+    <div class="header-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/>
+        <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" stroke="none"/>
+        <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" stroke="none"/>
+        <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" stroke="none"/>
+        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+      </svg>
+      DrawGuess
+    </div>
     <div class="round-badge" id="roundBadge">Runde 1/3</div>
     <div class="word-display" id="wordDisplay">· · ·</div>
     <div class="timer" id="timerDisplay">—</div>
@@ -97,9 +127,12 @@
         <!-- Game end overlay -->
         <div id="gameEndOverlay" class="canvas-overlay hidden">
           <div class="overlay-card fade-in">
-            <h2>🏆 Spiel beendet!</h2>
+            <h2>
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+              Spiel beendet!
+            </h2>
             <div class="podium" id="podium"></div>
-            <button class="btn-primary" id="playAgainBtn" style="margin-top:8px">Nochmal spielen</button>
+            <button class="btn-primary" id="playAgainBtn">Nochmal spielen</button>
           </div>
         </div>
       </div>
@@ -117,11 +150,20 @@
         </div>
         <div class="divider"></div>
         <div class="tool-btns">
-          <button class="tool-btn active" data-tool="pen" title="Stift">✏️</button>
-          <button class="tool-btn" data-tool="eraser" title="Radierer">⬜</button>
-          <button class="tool-btn" data-tool="fill" title="Farbeimer">🪣</button>
+          <button class="tool-btn active" data-tool="pen" title="Stift">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+          </button>
+          <button class="tool-btn" data-tool="eraser" title="Radierer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/></svg>
+          </button>
+          <button class="tool-btn" data-tool="fill" title="Farbeimer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 11-8-8-8.5 8.5a5.5 5.5 0 0 0 7.78 7.78L19 11Z"/><path d="m5 2 5 5"/><path d="M2 13h15"/><path d="M22 20a2 2 0 1 1-4 0c0-1.6 1.7-2.4 2-4 .3 1.6 2 2.4 2 4Z"/></svg>
+          </button>
         </div>
-        <button class="clear-btn" id="clearBtn">🗑️ Löschen</button>
+        <button class="clear-btn" id="clearBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+          Löschen
+        </button>
       </div>
     </div>
 
@@ -131,7 +173,9 @@
       <div class="chat-log" id="chatLog"></div>
       <form class="chat-form" id="chatForm" autocomplete="off">
         <input class="chat-input" id="chatInput" type="text" placeholder="Antwort eingeben..." maxlength="80">
-        <button class="chat-send" type="submit">→</button>
+        <button class="chat-send" type="submit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
       </form>
     </aside>
 

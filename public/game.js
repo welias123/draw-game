@@ -294,7 +294,11 @@ function renderPlayers(players, drawer, guessed) {
         <div class="pname">${esc(p.name)}</div>
         <div class="pscore">${p.score} Pkt</div>
       </div>
-      <span class="player-icon">${isDrawing ? '✏️' : didGuess ? '✅' : ''}</span>
+      <span class="player-icon">${isDrawing
+        ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>'
+        : didGuess
+        ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+        : ''}</span>
     `;
     list.appendChild(div);
   });
@@ -502,12 +506,12 @@ socket.on('gameEnd', ({ players }) => {
   document.getElementById('turnEndOverlay').classList.add('hidden');
   const podium = document.getElementById('podium');
   podium.innerHTML = '';
-  const medals = ['🥇','🥈','🥉'];
+  const rankClass = ['r1','r2','r3'];
   players.forEach((p, i) => {
     const row = document.createElement('div');
     row.className = 'podium-row';
     row.innerHTML = `
-      <span class="podium-rank">${medals[i] || (i+1)+'.'}</span>
+      <span class="podium-rank ${rankClass[i] || ''}">${i+1}</span>
       <span class="podium-name">${esc(p.name)}</span>
       <span class="podium-score">${p.score} Pkt</span>
     `;
