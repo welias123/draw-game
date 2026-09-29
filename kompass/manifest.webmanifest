@@ -1,0 +1,23 @@
+{
+  "name": "Kompass Tagesplaner",
+  "short_name": "Kompass",
+  "description": "Aufgaben, Fokus-Timer, Gewohnheiten und Notizen an einem Ort.",
+  "lang": "de",
+  "id": "./",
+  "start_url": "./#heute",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F6F8FC",
+  "theme_color": "#2447B3",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "shortcuts": [
+    { "name": "Fokus-Timer", "short_name": "Fokus", "url": "./#fokus", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Aufgaben", "url": "./#aufgaben", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Notizen", "url": "./#notizen", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

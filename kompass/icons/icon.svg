@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <pattern id="karo" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#FFFFFF" stroke-opacity=".1" stroke-width="2"/>
+    </pattern>
+    <clipPath id="c"><rect width="512" height="512" rx="112"/></clipPath>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#2447B3"/>
+  <rect width="512" height="512" rx="112" fill="url(#karo)"/>
+  <path d="M84 0V512" stroke="#FF7A82" stroke-width="6" stroke-opacity=".85" clip-path="url(#c)"/>
+  <g transform="translate(270 256)">
+    <circle r="148" fill="none" stroke="#FFFFFF" stroke-width="22"/>
+    <path d="M0-148V-118M148 0H118M0 148V118M-148 0H-118" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/>
+    <g transform="rotate(40)">
+      <path d="M0-112L30 0H-30Z" fill="#FF6B73"/>
+      <path d="M0 112L30 0H-30Z" fill="#FFFFFF"/>
+    </g>
+    <circle r="15" fill="#2447B3" stroke="#FFFFFF" stroke-width="8"/>
+  </g>
+</svg>
