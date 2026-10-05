@@ -22,7 +22,14 @@ das Kitzbüheler Horn.
 | Spawnpunkte | Ortszentrum (Kirche), Bahnhof Oberndorf, B161, Panoramastraße Kitzbüheler Horn |
 | KI-Verkehr | Alle Straßen sind für die KI befahrbar (inkl. Brücken), Einbahnen sind hinterlegt |
 
-## Installation
+## Installation (am einfachsten)
+
+1. [`Oberndorf_installieren.bat`](Oberndorf_installieren.bat) herunterladen und **doppelklicken**.
+   Falls Windows warnt („Der Computer wurde durch Windows geschützt"): *Weitere Informationen → Trotzdem ausführen*.
+2. Der Installer findet deinen BeamNG-Ordner, lädt die Map (ca. 80 MB) und legt sie in den Mods-Ordner.
+3. BeamNG starten → *Freeroam* → **Oberndorf in Tirol**.
+
+## Installation (von Hand)
 
 1. `dist/oberndorf_in_tirol.zip` herunterladen (**nicht entpacken**).
 2. Die ZIP-Datei in den BeamNG-Mods-Ordner kopieren. Am einfachsten: im Spiel unter
